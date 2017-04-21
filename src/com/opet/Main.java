@@ -1,6 +1,6 @@
 package com.opet;
 
-import java.util.Arrays;
+import com.opet.util.Reader;
 
 public class Main
 {
@@ -9,6 +9,7 @@ public class Main
     {
         int i = 0;
         Aluno []listaAluno = new Aluno[5];
+        Aluno []novosAlunos = new Aluno[5];
         listaAluno[0] = new Aluno("Tiago", 037710, "M");
         listaAluno[1] = new Aluno("Matheus", 1234596, "M");
         listaAluno[2] = new Aluno("Luah", 14725836, "F");
@@ -40,27 +41,42 @@ public class Main
 
         }
 
-        /* Classifica em ordem alfabética */
-        String []alunosEmOrdem = classificar(listaAluno);
-
-        for(int j=0; j<alunosEmOrdem.length;j++) {
-            System.out.println(alunosEmOrdem[j]);
+        String xNome = "";
+        for(int l=0;l<novosAlunos.length;l++) {
+            System.out.println("Digite o nome do aluno");
+            xNome = Reader.readString();
+            novosAlunos[l] = new Aluno(xNome, 0, "");
         }
 
+        System.out.println("");
+        System.out.println("=== ORDEM ALFABÉTICA ===");
+        /* Classifica em ordem alfabética */
+        Aluno []alunosEmOrdem = classificar(novosAlunos);
+
+        for(int j=0; j<alunosEmOrdem.length;j++) {
+            System.out.println(alunosEmOrdem[j].nome);
+        }
 
 
     }
-    public static String[] classificar(Aluno []alunos)
+    public static Aluno[] classificar(Aluno []alunos)
     {
         String []nomes = new String[5];
+        Aluno aux = new Aluno("", 0, "");
         /* Extrai todos os nomes*/
         for(int i=0; i<alunos.length;i++) {
-            nomes[i] = alunos[i].nome;
+            for(int k=0; k<alunos.length; k++) {
+                if(alunos[k].nome.compareTo(alunos[i].nome) > 0) {
+                    aux = alunos[k];
+                    alunos[k] = alunos[i];
+                    alunos[i] = aux;
+                }
+            }
         }
-
         /* coloca em ordem alfabética */
-        Arrays.sort(nomes);
-        return nomes;
+
+        //Arrays.sort(nomes);
+        return alunos;
     }
 
 }

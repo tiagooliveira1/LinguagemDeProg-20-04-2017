@@ -1,5 +1,7 @@
 package com.opet;
 
+import java.util.Arrays;
+
 public class Main
 {
 
@@ -38,8 +40,27 @@ public class Main
 
         }
 
+        /* Classifica em ordem alfabética */
+        String []alunosEmOrdem = classificar(listaAluno);
+
+        for(int j=0; j<alunosEmOrdem.length;j++) {
+            System.out.println(alunosEmOrdem[j]);
+        }
 
 
+
+    }
+    public static String[] classificar(Aluno []alunos)
+    {
+        String []nomes = new String[5];
+        /* Extrai todos os nomes*/
+        for(int i=0; i<alunos.length;i++) {
+            nomes[i] = alunos[i].nome;
+        }
+
+        /* coloca em ordem alfabética */
+        Arrays.sort(nomes);
+        return nomes;
     }
 
 }

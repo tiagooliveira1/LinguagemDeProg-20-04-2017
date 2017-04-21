@@ -8,6 +8,7 @@ public class Aluno
   public String sexo="";
   public Double Nota1 = 0.0;
   public Double Nota2 = 0.0;
+  public Nota []listNotas = new Nota[0] ;
 
   /* construtor */
   Aluno(
@@ -30,7 +31,11 @@ public class Aluno
       else
           return false;
 
+  }
 
+  public void setNota(Double vNota)
+  {
+      listNotas[listNotas.length] = new Nota(vNota);
   }
 
 }

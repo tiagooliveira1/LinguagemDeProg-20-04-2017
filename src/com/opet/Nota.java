@@ -2,5 +2,10 @@ package com.opet;
 
 public class Nota
 {
-    public Double valor = 0.0;
+    public Double valorNota = 0.0;
+
+    Nota(Double vNota)
+    {
+        valorNota = vNota;
+    }
 }

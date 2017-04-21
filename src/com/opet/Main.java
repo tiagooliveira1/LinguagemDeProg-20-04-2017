@@ -27,6 +27,9 @@ public class Main
 
         listaAluno[4].Nota1 = 8.5;
         listaAluno[4].Nota2 = 8.9;
+
+        //listaAluno[4].setNota(3.5);
+
         for(i=0;i<listaAluno.length;i++) {
             if(listaAluno[i].Aprovado())
                 System.out.println("Aluno "+listaAluno[i].nome+" Aprovado");
